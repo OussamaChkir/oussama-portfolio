@@ -1,0 +1,41 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: var(--font-inter);
+}
+
+.orange {
+    color: var(--primary-color);
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: 0.3s;
+    font-family: var(--font-inter);
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+}

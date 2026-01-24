@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --font-inter: "Inter", sans-serif;
+    --font-dm-sans: "DM Sans", sans-serif;
+    --font-doto: "Doto", sans-serif;
+    --primary-color: #ff7a18;
+    --secondary-color: oklch(70.4% .191 22.216);
+    --text-color: #0f172a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-dm-sans);
+}
+
+body {
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+body:before {
+    --size: 40px;
+    --line: light-dark(color-mix(in hsl, canvasText, #0000 90%), color-mix(in hsl, canvasText, #0000 80%));
+    content: "";
+    background: linear-gradient(90deg, var(--line)1px, transparent 1px var(--size))calc(var(--size)*.36)50%/var(--size)var(--size), linear-gradient(var(--line)1px, transparent 1px var(--size))0% calc(var(--size)*.32)/var(--size)var(--size);
+    transform-style: flat;
+    pointer-events: none;
+    z-index: -1;
+    width: 100vw;
+    height: 100dvh;
+    position: fixed;
+    top: 0;
+    -webkit-mask: linear-gradient(125deg, #0000 60%, #fff);
+    mask: linear-gradient(125deg, #0000 60%, #fff);
+}
