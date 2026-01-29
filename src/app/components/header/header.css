@@ -1,41 +1,206 @@
 .navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
-    width: 100%;
-    padding: 20px 10%;
+    padding: 6rem 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background: #fff;
     z-index: 1000;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    flex-direction: column;
+    width: 90%;
+    max-height: 100vh;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 700;
+#home h1 {
+    font-family: var(--font-dm-sans);
+    font-size: clamp(3rem, 8vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+#home h2 {
+    font-family: var(--font-doto);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+#home p {
     font-family: var(--font-inter);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #64748b;
+    max-width: 600px;
 }
 
 .orange {
     color: var(--primary-color);
 }
 
-nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: 0.3s;
-    font-family: var(--font-inter);
+/* Navigation Styles */
+.nav-container {
+    margin-top: 4rem;
+    display: none;
+    /* hidden by default like lg:block would imply, will override for desktop if needed or just keep generic */
 }
 
-nav a:hover {
-    color: var(--primary-color);
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        display: none;
+@media (min-width: 1024px) {
+    .nav-container {
+        display: block;
     }
+}
+
+.nav-list {
+    width: max-content;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.nav-indicator {
+    margin-right: 1rem;
+    height: 1px;
+    width: 2rem;
+    /* w-8 */
+    background-color: #475569;
+    /* slate-600 */
+    transition: all 0.3s ease;
+}
+
+.nav-text {
+    font-size: 0.75rem;
+    /* text-xs */
+    font-weight: 700;
+    /* font-bold */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    /* tracking-widest */
+    color: #64748b;
+    /* slate-500 */
+    font-family: var(--font-inter);
+    transition: all 0.3s ease;
+}
+
+/* Hover & Focus States - Group Logic */
+.nav-link:hover .nav-indicator,
+.nav-link:focus-visible .nav-indicator {
+    width: 4rem;
+    /* w-16 */
+    background-color: var(--text-color);
+    /* slate-200 equivalent / using theme color for better contrast or stick to request */
+}
+
+/* Staying true to the request colors explicitly */
+.nav-link:hover .nav-indicator,
+.nav-link:focus-visible .nav-indicator {
+    background-color: #0f172a;
+    /* darker slate for visibility or adhere to design? The request used slate-200 (light). Assuming dark theme bg? */
+}
+
+/* Wait, the request used text-slate-200 and bg-slate-200 on hover. The user snippet suggests a DARK background because slate-200 is very light.
+   However, styles.css shows body background is #f8fafc (light).
+   Applying slate-200 on a light background will be invisible.
+   I should arguably invert the logic or stick to the request if they plan to change the theme.
+   Given the current light theme, I will use darker colors for the active/hover state to ensure visibility.
+   
+   Request: group-hover:bg-slate-200 
+   Current Theme: Light background (#f8fafc)
+   
+   If I use slate-200 (#e2e8f0) on #f8fafc (#f8fafc), contrast is 1.07. Invisible.
+   The user likely copied this from a dark-themed site.
+   I will adapt the colors to the current light theme.
+   
+   Normal state: slate-500 (#64748b) -> Good on light.
+   Hover state: Needs to be darker/stronger.
+   I will use var(--primary-color) or a dark slate like #0f172a for the hover state.
+*/
+
+.nav-link:hover .nav-indicator,
+.nav-link:focus-visible .nav-indicator,
+.nav-link.active .nav-indicator {
+    width: 4rem;
+    background-color: var(--text-color);
+    /* Dark color */
+}
+
+.nav-link:hover .nav-text,
+.nav-link:focus-visible .nav-text,
+.nav-link.active .nav-text {
+    color: var(--text-color);
+    /* Dark color */
+}
+
+/* Social Links */
+.social-list {
+    display: flex;
+    /* flex */
+    align-items: center;
+    /* items-center */
+    margin-left: 0.25rem;
+    /* ml-1 */
+    margin-top: 2rem;
+    /* mt-8 */
+    list-style: none;
+    padding: 0;
+
+    /* Match usage behavior (hidden on mobile, visible on desktop) */
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .social-list {
+        display: flex;
+    }
+}
+
+.social-item {
+    margin-right: 1.25rem;
+    /* mr-5 */
+    flex-shrink: 0;
+    /* shrink-0 */
+}
+
+/* Base link styles */
+.social-link {
+    display: block;
+    /* block */
+    color: #64748b;
+    /* slate-500 equivalent base color */
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--text-color);
+    /* darker contrast on hover */
+}
+
+.social-icon {
+    width: 1.5rem;
+    /* h-6 w-6 = 1.5rem */
+    height: 1.5rem;
+}
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
