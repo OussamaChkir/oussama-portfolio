@@ -204,3 +204,9 @@
     white-space: nowrap;
     border-width: 0;
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 2rem 0;
+    }
+}

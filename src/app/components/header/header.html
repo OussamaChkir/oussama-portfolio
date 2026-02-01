@@ -9,25 +9,25 @@
     <nav class="nav-container">
         <ul class="nav-list">
             <li>
-                <a class="nav-link active" href="#about">
+                <a class="nav-link" [class.active]="activeSection === 'about'" href="#about">
                     <span class="nav-indicator"></span>
                     <span class="nav-text">About</span>
                 </a>
             </li>
             <li>
-                <a class="nav-link" href="#experience">
+                <a class="nav-link" [class.active]="activeSection === 'experience'" href="#experience">
                     <span class="nav-indicator"></span>
                     <span class="nav-text">Experience</span>
                 </a>
             </li>
             <li>
-                <a class="nav-link" href="#projects">
+                <a class="nav-link" [class.active]="activeSection === 'projects'" href="#projects">
                     <span class="nav-indicator"></span>
                     <span class="nav-text">Projects</span>
                 </a>
             </li>
             <li>
-                <a class="nav-link" href="#contact">
+                <a class="nav-link" [class.active]="activeSection === 'contact'" href="#contact">
                     <span class="nav-indicator"></span>
                     <span class="nav-text">Contact</span>
                 </a>
@@ -37,7 +37,7 @@
 
     <ul class="social-list">
         <li class="social-item">
-            <a class="social-link" href="https://github.com" target="_blank" rel="noreferrer noopener"
+            <a class="social-link" href="https://github.com/OussamaChkir" target="_blank" rel="noreferrer noopener"
                 aria-label="GitHub (opens in a new tab)" title="GitHub">
                 <span class="sr-only">GitHub</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="social-icon"
@@ -49,8 +49,8 @@
             </a>
         </li>
         <li class="social-item">
-            <a class="social-link" href="https://linkedin.com" target="_blank" rel="noreferrer noopener"
-                aria-label="LinkedIn (opens in a new tab)" title="LinkedIn">
+            <a class="social-link" href="https://www.linkedin.com/in/oussama-chkir/" target="_blank"
+                rel="noreferrer noopener" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn">
                 <span class="sr-only">LinkedIn</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="social-icon"
                     aria-hidden="true">
@@ -61,7 +61,7 @@
             </a>
         </li>
         <li class="social-item">
-            <a class="social-link" href="mailto:example@gmail.com" aria-label="Email" title="Email">
+            <a class="social-link" href="mailto:oussama501chkir@gmail.com" aria-label="Email" title="Email">
                 <span class="sr-only">Email</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon"

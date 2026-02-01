@@ -195,10 +195,11 @@ main {
 
 #about p {
     font-family: var(--font-inter);
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
     color: #64748b;
     line-height: 1.4em;
+    margin-bottom: 2rem;
 }
 
 /* Projects Section */
@@ -348,7 +349,94 @@ main {
     height: 1rem;
 }
 
+/* Contact Section */
+#contact {
+    scroll-margin-top: 6rem;
+    max-width: 60vw;
+    margin: 0 auto;
+    padding: 2rem 0 6rem;
+    text-align: center;
+}
+
+#contact .section-title {
+    font-family: var(--font-doto);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    letter-spacing: -2px;
+}
+
+.contact-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #64748b;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+}
+
+.contact-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .contact-links {
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.contact-link:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    background: rgba(255, 122, 24, 0.05);
+}
+
+.contact-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
 /* Mobile responsive */
+@media (max-width: 1024px) {
+
+    #about,
+    #experience,
+    #projects,
+    #contact {
+        max-width: 100%;
+    }
+
+    main {
+        padding: 2rem 0;
+    }
+
+    #about {
+        padding-bottom: 3rem;
+    }
+}
+
 @media (max-width: 639px) {
     .project-image {
         order: 2;
@@ -358,9 +446,5 @@ main {
     .project-content {
         order: 1;
         grid-column: span 1;
-    }
-
-    #projects {
-        max-width: 100%;
     }
 }
